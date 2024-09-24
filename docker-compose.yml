@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  psiphon:
+    build: .
+    ports:
+      - "8082:8082"
+      - "1081:1081"
+    volumes:
+      - ~/configs:/app/archive/configs
+    command: ./psiphon-tunnel-core-x86_64 -config ./configs/psiphon.config
+    restart: always
+
